@@ -11,7 +11,8 @@
 let ws;
 try {
   // Choose correct websocket proto
-  ws = new WebSocket(`wss://${window.location.host}`);
+  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws';
+  ws = new WebSocket(`${proto}://${window.location.host}`);
 } catch(e) {
   // 
 }
